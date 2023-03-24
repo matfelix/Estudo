@@ -1,66 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Elon Musk</title>
+    <title>Calculadora</title>
     <style>
-      /* Define a cor do fundo */
-      body {
-        background-color: #EFEFEF;
+      /* Define o estilo da calculadora */
+      #calculator {
+        width: 300px;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 10px;
+        margin: auto;
+        text-align: center;
       }
-      
-      /* Define o estilo do cabelo */
-      #hair {
-        background-color: #4B4B4B;
-        height: 100px;
-        width: 140px;
-        position: absolute;
-        top: 60px;
-        left: 80px;
-        border-radius: 50% 50% 0 0;
-        transform: rotate(-30deg);
-        z-index: 1;
-      }
-      
-      /* Define o estilo do rosto */
-      #face {
-        background-color: #E1DCC5;
-        height: 200px;
-        width: 200px;
-        border-radius: 50%;
-        position: absolute;
-        top: 40px;
-        left: 50px;
-        z-index: 0;
-      }
-      
-      /* Define o estilo dos olhos */
-      #left-eye, #right-eye {
-        background-color: white;
-        height: 30px;
-        width: 40px;
-        position: absolute;
-        top: 100px;
-        border-radius: 50%;
-      }
-      
-      /* Define o estilo da boca */
-      #mouth {
-        border: 5px solid #4B4B4B;
-        border-top: none;
+      /* Define o estilo dos botões */
+      .button {
+        width: 50px;
         height: 50px;
-        width: 80px;
-        position: absolute;
-        top: 140px;
-        left: 60px;
-        border-radius: 0 0 50% 50%;
+        margin: 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #efefef;
+      }
+      /* Define o estilo do visor */
+      #display {
+        width: 250px;
+        height: 50px;
+        border: 1px solid black;
+        margin: 10px;
+        text-align: right;
+        padding-right: 10px;
+        font-size: 20px;
       }
     </style>
   </head>
   <body>
-    <div id="hair"></div>
-    <div id="face"></div>
-    <div id="left-eye"></div>
-    <div id="right-eye"></div>
-    <div id="mouth"></div>
+    <div id="calculator">
+      <div id="display">0</div>
+      <button class="button" onclick="addToDisplay('7')">7</button>
+      <button class="button" onclick="addToDisplay('8')">8</button>
+      <button class="button" onclick="addToDisplay('9')">9</button>
+      <button class="button" onclick="addToDisplay('/')">÷</button>
+      <br />
+      <button class="button" onclick="addToDisplay('4')">4</button>
+      <button class="button" onclick="addToDisplay('5')">5</button>
+      <button class="button" onclick="addToDisplay('6')">6</button>
+      <button class="button" onclick="addToDisplay('*')">×</button>
+      <br />
+      <button class="button" onclick="addToDisplay('1')">1</button>
+      <button class="button" onclick="addToDisplay('2')">2</button>
+      <button class="button" onclick="addToDisplay('3')">3</button>
+      <button class="button" onclick="addToDisplay('-')">-</button>
+      <br />
+      <button class="button" onclick="addToDisplay('0')">0</button>
+      <button class="button" onclick="addToDisplay('.')">.</button>
+      <button class="button" onclick="clearDisplay()">C</button>
+      <button class="button" onclick="addToDisplay('+')">+</button>
+      <br />
+      <button class="button" onclick="calculate()">=</button>
+    </div>
+    <script>
+      // Função para adicionar números e operadores no visor
+      function addToDisplay(value) {
+        document.getElementById('display').innerHTML += value
+      }
+      // Função para limpar o visor
+      function clearDisplay() {
+        document.getElementById('display').innerHTML = '0'
+      }
+      // Função para calcular o resultado
+      function calculate() {
+        var result = eval(document.getElementById('display').innerHTML)
+        document.getElementById('display').innerHTML = result
+      }
+    </script>
   </body>
 </html>
